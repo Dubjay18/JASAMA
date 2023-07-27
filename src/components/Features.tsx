@@ -16,7 +16,7 @@ export default function Features() {
     >
       <Text
         style={{ fontSize: wp(6.5) }}
-        className="font-semibold text-gray-700"
+        className="font-semibold text-white italic "
       >
         Features
       </Text>

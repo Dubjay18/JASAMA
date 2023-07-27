@@ -11,17 +11,6 @@ const client: AxiosInstance = axios.create({
 const chatgptUrl: string = 'https://api.openai.com/v1/chat/completions';
 const dalleUrl: string = 'https://api.openai.com/v1/images/generations';
 
-interface IMessage {
-  role: string;
-  content: string;
-}
-
-interface IApiResponse {
-  success: boolean;
-  data?: IMessage[];
-  msg?: string;
-}
-
 export const apiCall = async (
   prompt: string,
   messages: IMessage[]
