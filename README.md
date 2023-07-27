@@ -32,6 +32,7 @@ J.A.S.A.M.A (Jovial Artificial Sentient Anime Mindful Assistant) is a cutting-ed
 
 - React Native
 - TypeScript
+- Nativewind
 
 ## Contributing
 
