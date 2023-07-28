@@ -48,16 +48,18 @@ const App = () => {
     setRecording(true);
     Tts.stop();
     try {
-      await Voice.start('en-GB'); // en-US
+      await Voice.start('en-US'); // en-US
     } catch (error) {
       console.log('error', error);
     }
   };
   const stopRecording = async () => {
+    console.log('stopping recording');
     try {
       await Voice.stop();
       setRecording(false);
       fetchResponse();
+      console.log('stopped recording');
     } catch (error) {
       console.log('error', error);
     }
@@ -71,6 +73,8 @@ const App = () => {
 
   const fetchResponse = async () => {
     if (result.trim().length > 0) {
+      console.log('fetching response', result.trim());
+
       setLoading(true);
       let newMessages = [...messages];
       newMessages.push({ role: 'user', content: result.trim() });
@@ -242,7 +246,7 @@ const App = () => {
             //   style={{width: hp(10), height: hp(10)}}
             // />
             <View>
-              <Text>Loaing...</Text>
+              <Text className="text-white">Loaing...</Text>
             </View>
           ) : recording ? (
             <TouchableOpacity className="space-y-2" onPress={stopRecording}>
@@ -252,20 +256,25 @@ const App = () => {
                     source={require('../../assets/images/voiceLoading.gif')}
                     style={{width: hp(10), height: hp(10)}}
                   /> */}
+
               <View>
-                <Text>...</Text>
+                <Text className="text-white">stop</Text>
               </View>
             </TouchableOpacity>
           ) : (
-            <TouchableOpacity onPress={startRecording}>
+            <TouchableOpacity
+              className="border-2 border-white"
+              onPress={startRecording}
+            >
               {/* recording start button */}
               {/* <Image 
                     className="rounded-full" 
                     source={require('../../assets/images/recordingIcon.png')}
                     style={{width: hp(10), height: hp(10)}}
                   /> */}
+
               <View>
-                <Text>rrr</Text>
+                <Text className="text-white text-xl">rrr</Text>
               </View>
             </TouchableOpacity>
           )}
